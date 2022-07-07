@@ -1,0 +1,1688 @@
+﻿<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+   
+    <title>MGSC of IGU- Modeling Geographical Systems Commission International Geographical Union (IGU)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0,  minimum-scale=1.0,  maximum-scale=1.0,  user-scalable=no">
+    <script type="text/javascript" th:src="@{/ref/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{ref/bootstrap/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/ref/animate.min.css}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" th:href="@{/css/universal.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.min.css}"></script>
+<!--    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+    <!--引入 element-ui 的样式，-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 必须先引入vue，  后使用element-ui -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <!-- 引入element 的组件库-->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        .el-collapse-item__header{
+            height: 70px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+ 
+<body >
+<div id="app"   >
+    <div class="head row" style="margin: auto;">
+        <div class="col-md-12 col-xs-12 head-p logo" style="padding:1.2rem" ><a th:href="@{/index.html}"><img class="Title" th:src="@{/img/logo/KeyLogo.png}" ></a>
+        </div>
+
+        <div class="col-md-12col-xs-12 head-p logo " style="padding-top: 1rem;padding-bottom: 0.5rem">
+            <p>Modeling Geographical Systems Commission (MGSC)</p>
+            <p>International Geographical Union (IGU)</p>
+        </div>
+    </div>
+
+
+<!--菜单-->
+    <div  class="row" style="margin: auto;background-color: #1a80b6">
+        <div class="menu-self col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" >
+            <el-menu
+                    :default-active="activeMenuIndex"
+                    class="el-menu-demo "
+                    mode="horizontal"
+                    @select="menuSelect"
+                    background-color="#1a80b6"
+                    text-color="#fff"
+                    active-text-color="white"
+
+            >
+                <el-menu-item index="Home">Home</el-menu-item>
+                <el-menu-item index="AboutUs">About Us</el-menu-item>
+                <el-menu-item index="Events">Events</el-menu-item>
+                <el-menu-item index="Awards">Awards</el-menu-item>
+                <el-submenu index="Publications">
+                    <template slot="title">Publications</template>
+                    <el-menu-item index="Journals">Journals</el-menu-item>
+                    <el-menu-item index="specialissue">Special Issue</el-menu-item>
+                    <el-menu-item index="memberspaper">Members' Papers</el-menu-item>
+
+                </el-submenu>
+                <el-menu-item index="JobsOpportunities">Jobs & Opportunities</el-menu-item>
+                <el-menu-item index="JoinUs">Join Us</el-menu-item>
+                <el-menu-item index="ContactUs">Contact Us</el-menu-item>
+                <el-menu-item index="userentrance"> <a class="nav-link" id="userentrance" th:href="@{log.html}">Login</a></el-menu-item>
+
+            </el-menu>
+
+        </div>
+    </div>
+
+    <div class='container-fluid content-container' style="margin:auto;line-height: 1.7rem;padding-bottom: 1rem;">
+
+        <!--Home1-->
+        <div class="row" id="Home">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" >
+
+                <h3 class="cos-strong">Vision of MGSC</h3>
+                <hr>
+                <div class="cos-modal"> The vision of Modeling Geographical Systems Commission (MGSC) of
+                    International Geographical Union (IGU) is to share an interest in developing the theories,
+                    dynamics,  simulation and decision-making of geographical systems using statistical and mathematical
+                    approaches,  and further to enhance research on modeling and simulation methods and other technological
+                    advances for geographic pattern analysis and process exploration.
+                    <br><br>
+                </div>
+            </div>
+
+            <!-- latest news -->
+
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" >
+                <br>
+                <h3 class="cos-strong">Latest News</h3>
+                <hr>
+                <div class="cos-modal" >
+                    <strong class="home-h"><a class="home-ha" @click="newsJump($event,2022)" id="Call-for-Nominations">Call for Nominations - IGU Outstanding Achievement Award and Excellent Young Scholar Award in Modeling Geographical Systems (2022) </a><br></strong>
+
+                    <p>The IGU Outstanding Achievement Award and Excellent Young Scholar Award in Modeling Geographical Systems (OAA 2022 and YSA 2022) are receiving nominations to recognize researchers for long and meritorious contributions to the community of geographic modeling research or young researchers for meritorious academic contributions in their early career. An awards committee will be organized by IGU through its Modeling Geographical Systems Commission (IGU MGSC), and it will solicit and evaluate the nominees and presents the awards to the individuals in light of their excellent scientific achievements and contributions.<br></p>
+
+                    <p>The abstract follows: <a class="home-ha" @click="newsJump($event,2022)"  >(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="cos-modal" >
+                    <strong class="home-h"><a class="home-ha" @click="newsJump($event,2021)" id="Call-for-Abstracts">Call for Abstracts | The session of Geographic information modelling and simulation in the era of big data in IGU Paris 2022</a><br></strong>
+                    <small class="home-date">June 18 to 22, 2022<br><br></small>
+                    <p>The centennial congress of the International Geographical Union (IGU) will
+                        be held in Paris from June 18 to 22, 2022. Around the theme "Time for Geographers"
+                        of the congress, the Modeling Geographical Systems Commission (MGSC) of IGU will organize a virtual session–Geographic \
+                        information modelling and simulation in the era of big data–to promote idea exchange and achievement sharing in this field.<br></p>
+
+                    <p>The abstract follows: <a class="home-ha" @click="newsJump($event,2021)"  >(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="cos-modal" >
+                    <strong class="home-h"><a class="home-ha" th:href="@{/doc/International-Geography-and-Sustainability-Workshop-2021.pdf}" target="_blank" >The 2nd International Geography and Sustainability Workshop (online)</a><br></strong>
+                    <small class="home-date">Nov 23th-24th, 2021<br><br></small>
+                    <p>The 2021 International Geography and Sustainability Workshop (online) will be held from November 23 to 24. This workshop brings together researchers around the world, in collaboration with IGU commissions, to identify common challenges and discuss solutions to promote sustainable development through an integrated geographic perspective.  It will present the latest research progress on geography and sustainability and is expected to provide a valuable contribution to transforming our world for sustainable development. Specific objectives are: to identify critical research areas on geography and sustainability; and present the geographical case studies on transforming our world for sustainable development.<br></p>
+                    <strong><p>Welcome to join us!</p></strong>
+                    <p>The abstract follows: <a class="home-ha" th:href="@{/doc/International-Geography-and-Sustainability-Workshop-2021.pdf}" target="_blank" >(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+
+                <div class="cos-modal" >
+                    <strong class="home-h"><a @click="newsJump($event)" class="home-ha" id="#Minutes-of-the-second" >Minutes of the second board meeting of Modeling Geographical Systems Commission (MGSC)</a><br></strong>
+                    <small class="home-date">Sep 20th, 2021<br><br></small>
+                    <p>Prof. Min Chen in the meeting introduced the events and news that happened this year, followed by discussing with the board members about the future activities. The major topics and discussion are shown below:<br></p>
+                    <ul>
+                        <li>The progress in member registration.</li>
+                        <li>Review of important events</li>
+                        <li>Special issues</li>
+                        <li>Calling for new members</li>
+                        <li>Collecting news on geographic modeling and simulation and spreading to our colleagues via our website and mail list</li>
+                        <li>Hosting or organizing conferences, workshops, and webinar</li>
+                        <li>Four awards by committee meeting: Best Paper, Excellent Young Scholar, Distinguished Scholar and Distinguished Service.</li>
+
+                    </ul>
+                    <p>The abstract follows: <a class="home-ha" id="#Minutes-of-the-second" @click="newsJump($event)">(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="cos-modal" >
+                    <strong class="home-h"><a @click="newsJump($event,2021)" class="home-ha" id="#IGU-19th-International" >IGU 19th International Conference on Spatial Data Handling and Geographic Intelligence</a><br></strong>
+                    <small class="home-date">Aug 13th-14th, 2021<br><br></small>
+                    <p>During August 13-14, 2021, the 19th International Conference on Spatial Data Handling and Geographic Intelligence was successfully held. The IGU Comission on Geographical Information Science and Commission on Modeling Geographical Systems co-organized this conference.<br></p>
+                    <p>The abstract follows: <a class="home-ha" id="#IGU-19th-International" @click="newsJump($event,2021)">(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+
+                <div class="cos-modal" >
+                    <strong class="home-h"><a @click="newsJump($event,2021)" class="home-ha" id="#The-first-training-course" >The first training course on Chinese geographical analysis models</a><br></strong>
+                    <small class="home-date">Aug 9th-16th, 2021<br><br></small>
+                    <p>The 1st training session on Chinese geographic analysis models was successfully held during August 9th-16th, 2021. This training session was mainly organized by Nanjing Normal University, the Geographical Society of China (GSC), China Society of Natural Resources (CSNR), China Association for Geospatial Information Society (CAGIS), Chinese National Committee of International Society for Digital Earth (ISDE).<br></p>
+                    <p>The abstract follows: <a class="home-ha" id="#The-first-training-course" @click="newsJump($event,2021)">(more…)</a></p>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <!-- AboutUs2 -->
+        <div class="row" id="AboutUs">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Mission of MGSC</h3>
+                <hr>
+                <div class="cos-modal">
+                    <div class="cos-strong2">The commission will develop a medium-term research agenda for the
+                        commission, which will serve as the guideline for commission events and for community members
+                        to share ideas and research findings. Specifically, <br><br>
+                    </div>
+
+                    <ul>
+                        <li>Develop and maintain connections and joint efforts with other IGU groups as well as
+                            other
+                            related GIScience and geographic academic organizations.
+                        </li>
+                        <li>Organize special sessions and workshops in IGU conferences as well as other GIScience,
+                            or
+                            geography conferences,  in accordance with the research agenda.
+                        </li>
+                        <li>Collaborate with commissions within IGU or other academic associations to organize joint
+                            workshops on topics of shared interest.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <br >
+                <h3 class="cos-strong">Structure of MGSC</h3>
+                <hr>
+                <div class="cos-modal">
+                    <p>
+                        The MGSC consists of chair,  secretary, honorary advisory member and steering committee member.
+                        The secretary and members will be nominated by the chair and elected through a meeting or online voting.
+                        There will be a board committee that will work with the chair and secretary to manage the group.
+                    </p>
+                    <br>
+                    <img  class="img-responsive" th:src="@{/img/Content/AY3_1.png}">
+                    <br>
+                    <br>
+                    <p>
+                        All these positions are appointed for a period of four years. The appointment of the positions
+                        can be terminated mid-term for non-performance,  or unsatisfactory performance,  of duties.
+                    </p>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="row " id="BoardMembers">
+
+                <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 ">
+
+                    <h3 class="cos-strong">Board Members</h3><hr>
+                    <h4 class="cos-strong">Chair and Secretary</h4>
+
+                    <div class="cos-modal2 col-12" >
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img  class="img-responsive" th:src="@{img/Members/MinChen.jpg}" >
+                            <br>
+                        </div>
+
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+
+                            <strong>Prof. Min Chen</strong><br>
+                            <strong>Chair of MGSC of IGU</strong>
+                            <p>PhD,  Professor <br>
+                                Nanjing Normal University,  China<br>
+                                Links:   <a href="http://schools.njnu.edu.cn/geog/person/min-chen" target="_blank" style="color: orange;">http://schools.njnu.edu.cn/geog/person/min-chen</a><br>
+                                Email: <a href="mailto:chenmin0902@163.com" style="color: orange;"> chenmin0902@163.com	</a><br>
+                            </p>
+                            <br>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12 " >
+                            <img class="img-responsive" th:src="@{img/Members/XinTao Liu.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Dr. Xintao Liu</strong><br>
+                            <strong>Secretary of MGSC of IGU</strong>
+                            <p>PhD,  Assistant Professor <br>
+                                The HongKong Polytechnic University,  China<br>
+                                Links:   <a href="https://geoxlab.github.io/" target="_blank" style="color: orange;">https://geoxlab.github.io/</a><br>
+                                Email: <a href="mailto:xintao.liu@polyu.edu.hk" style="color: orange;"> xintao.liu@polyu.edu.hk	</a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" style="margin-top: 1rem">
+                    <h4 class="cos-strong">Honorary Advisory Member (Alphabetically ordered by last name)</h4>
+                    <hr>
+                    <div class="col-12 cos-modal2">
+
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/LUC ANSELIN.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Luc Anselin </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                University of Chicago,  USA <br>
+                                Links:   <a href="https://spatial.uchicago.edu/directory/luc-anselin-PhD" target="_blank" style="color: orange;">https://spatial.uchicago.edu/directory/luc-anselin-PhD</a><br>
+                                Email: <a href="mailto:anselin@uchicago.edu" style="color: orange;"> anselin@uchicago.edu </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Michael Batty.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Michael Batty </strong><br>
+
+                            <p>PhD, Professor<br>
+                                University College London, UK <br>
+                                Links: <a href="https://www.urbantransformations.ox.ac.uk/blog/2016/measuring-mobility-and-segregation-in-metropolitan-london-and-sao-paulo/" target="_blank" style="color: orange;">https://www.urbantransformations.ox.ac.uk/blog/</a><br>
+                                Email: <a href="mailto:m.batty@ucl.ac.uk" style="color: orange;"> m.batty@ucl.ac.uk </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Stewart Fotheringham.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Stewart Fotheringham </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Arizona State University,  USA <br>
+                                Links:   <a href="https://isearch.asu.edu/profile/2372224" target="_blank" style="color: orange;">https://isearch.asu.edu/profile/2372224</a><br>
+                                Email: <a href="mailto:rbsgeo@hotmail.com" style="color: orange;"> sfotheri@asu.edu </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/jakeman.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Tony Jakeman </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Australian National University,  Austrlia<br>
+                                Links:   <a href="https://researchers.anu.edu.au/researchers/jakeman-aj" target="_blank" style="color: orange;">https://researchers.anu.edu.au/researchers/jakeman-aj</a><br>
+                                Email: <a href="mailto:tony.jakeman@anu.edu.au" style="color: orange;"> tony.jakeman@anu.edu.au </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Mei-Po Kwan.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Mei-Po Kwan </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                The Chinese University of Hong Kong,  HKSAR, China <br>
+                                Links:   <a href="http://www.meipokwan.org/" target="_blank" style="color: orange;">http://www.meipokwan.org/</a><br>
+                                Email: <a href="mailto:mpk654@gmail.com" style="color: orange;"> mpk654@gmail.com </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Li Xin.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Xin Li </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Institute of Tibetan Plateau Research, Chinese Academy of Sciences,  China <br>
+                                Links:   <a href="http://sourcedb.itpcas.cas.cn/cn/expert/201806/t20180619_5027698.html" target="_blank" style="color: orange;">http://sourcedb.itpcas.cas.cn/cn/expert/201806/t20180619_5027698.html</a><br>
+                                Email: <a href="mailto:xinli@itpcas.ac.cn" style="color: orange;"> xinli@itpcas.ac.cn </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Guonian Lu.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Guonian Lu </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Nanjing Normal University,  China <br>
+                                Links:   <a href="http://dky.njnu.edu.cn/info/1213/3877.htm" target="_blank" style="color: orange;">http://dky.njnu.edu.cn/info/1213/3877.htm</a><br>
+                                Email: <a href="mailto:gnlu@njnu.edu.cn" style="color: orange;"> gnlu@njnu.edu.cn </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/RB Singh.jpg}" style="filter: grayscale(1)">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong><u> Prof. R.B. SINGH </u></strong><br>
+
+                            <p>PhD,  Professor<br>
+                                University of Delhi,  India <br>
+                                Links:   <a href="http://www.du.ac.in/du/uploads/Faculty%20Profiles/2017/Geography/May2017_Geography_R.B.Singh.pdf" target="_blank" style="color: orange;">http://www.du.ac.in/du/uploads/Faculty%20Profiles/2017/Geography/May2017_Geography_R.B.Singh.pdf</a><br>
+                                Email: <a href="mailto:rbsgeo@hotmail.com" style="color: orange;"> rbsgeo@hotmail.com </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/JosefStrobl.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Josef Strobl </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Universität Salzburg,  Austria<br>
+                                Links:   <a href="http://jstrobl.zgis.net/" target="_blank" style="color: orange;">http://jstrobl.zgis.net/</a><br>
+                                Email: <a href="mailto:josef.strobl@sbg.ac.at" style="color: orange;"> josef.strobl@sbg.ac.at </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/WANG Jinfeng.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Prof. Jinfeng Wang </strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Institute of Geographic Sciences and Natural Resources Research, CAS,  China <br>
+                                Links:   <a href="http://sourcedb.igsnrr.cas.cn/yw/zjrck/200906/t20090626_1842448.html" target="_blank" style="color: orange;">http://sourcedb.itpcas.cas.cn/cn/expert/201806/t20180619_5027698.html</a><br>
+                                Email: <a href="mailto:wangjf@Lreis.ac.cn" style="color: orange;"> wangjf@Lreis.ac.cn </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-8  col-md-offset-2 col-xs-10 col-xs-offset-1" style="margin-top: 1rem;">
+                    <h4 class="cos-strong">Steering Committee Members (Alphabetically ordered by last name)</h4>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/TaoCheng.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Tao Cheng</strong><br>
+
+                            <p>PhD,  Professor<br>
+                                University College London,  UK<br>
+                                Links:   <a href="https://www.ucl.ac.uk/work-at-ucl/our-community/meet-our-community/professor-tao-cheng" target="_blank" style="color: orange;">https://www.ucl.ac.uk/work-at-ucl/our-community/meet-our-community/professor-tao-cheng</a><br>
+                                Email: <a href="tao.cheng@ucl.ac.uk" style="color: orange;"> tao.cheng@ucl.ac.uk </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Christophe Claramunt.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Christophe Claramunt</strong><br>
+
+                            <p> PhD,  Professor <br>
+                                French Naval Academy,  France<br>
+                                Links:   <a href="http://christophe.claramunt.free.fr/" target="_blank" style="color: orange;">http://christophe.claramunt.free.fr/</a><br>
+                                Email: <a href="mailto:christophe.claramunt@gmail.com " style="color: orange;"> christophe.claramunt@gmail.com  </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Barry Croke.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Barry Croke</strong><br>
+
+                            <p>PhD,  Professor <br>
+                                Australian National University,  Australia<br>
+                                Links:   <a href="https://researchers.anu.edu.au/researchers/croke-bfw" target="_blank" style="color: orange;">https://researchers.anu.edu.au/researchers/croke-bfw</a><br>
+                                Email: <a href="mailto:barry.croke@anu.edu.au" style="color: orange;"> 	barry.croke@anu.edu.au </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Andreas Koch.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Andreas Koch</strong><br>
+
+                            <p> PhD,  Professor  <br>
+                                Universität Salzburg,  Austria<br>
+                                Links:   <a href="https://www.uni-salzburg.at/index.php?id=22767&L=1" target="_blank" style="color: orange;">https://www.uni-salzburg.at/index.php?id=22767&L=1</a><br>
+                                Email: <a href="mailto:andreas.koch@sbg.ac.at" style="color: orange;"> andreas.koch@sbg.ac.at </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Manish Kumar.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Dr. Manish Kumar </strong><br>
+
+                            <p>PhD, Assistant Professor<br>
+                                Central University of Haryana, India <br>
+                                Links: <a href="http://www.cuh.ac.in/admin/uploads/files/manishks.pdf" target="_blank" style="color: orange;">http://www.cuh.ac.in/admin/uploads/files/manishks.pdf</a><br>
+                                Email: <a href="mailto:manish.ks@cuh.ac.in" style="color: orange;"> manish.ks@cuh.ac.in </a><br>
+                                Email: <a href="mailto:manish.ks1@gmail.com" style="color: orange;"> manish.ks1@gmail.com </a><br>
+
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Erik Nixdorf.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Dr. Erik Nixdorf </strong><br>
+
+                            <p>PhD<br>
+                                HelmHoltz-Centre for Environmental Research,  Germany <br>
+                                Links:   <a href="https://www.ufz.de/index.php?de=38476" target="_blank" style="color: orange;">https://www.ufz.de/index.php?de=38476</a><br>
+                                Email: <a href="mailto:erik.nixdorf@ufz.de" style="color: orange;"> erik.nixdorf@ufz.de </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{img/Members/Antonio Páez.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Antonio Páez</strong><br>
+
+                            <p> PhD,  Professor <br>
+                                McMaster Uniersity,  Canada<br>
+                                Links:   <a href="https://www.science.mcmaster.ca/ees/component/comprofiler/userprofile/paezha.html?itemid=351" target="_blank" style="color: orange;">https://www.science.mcmaster.ca/ees/component/comprofiler/userprofile/paezha.html?itemid=351</a><br>
+                                Email: <a href="paezha@mcmaster.ca" style="color: orange;"> paezha@mcmaster.ca </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Karel Stane.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Dr. Karel Stane </strong><br>
+
+                            <p>PhD,  Assistant Professor<br>
+                                Masaryk University,  Czech Republic <br>
+                                Links:   <a href="https://www.muni.cz/en/people/1944-karel-stanek" target="_blank" style="color: orange;">https://www.muni.cz/en/people/1944-karel-stanek</a><br>
+                                Email: <a href="mailto:erik.nixdorf@ufz.de" style="color: orange;"> karst@geogr.muni.cz </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Paul Torrens.png}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Paul Torrens</strong><br>
+
+                            <p>PhD,  Professor<br>
+                                New York University,  USA<br>
+                                Links:   <a href="https://cusp.nyu.edu/profiles/paul-m-torrens/" target="_blank" style="color: orange;">https://cusp.nyu.edu/profiles/paul-m-torrens/</a><br>
+                                Email: <a href="mailto:torrens@geosimulation.com" style="color: orange;"> torrens@geosimulation.com </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cos-modal2">
+                        <hr>
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/Rumiana Vatseva.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong>Prof. Rumiana Vatseva</strong><br>
+
+                            <p>PhD,  Professor<br>
+                                Bulgarian Academy of Sciences,  Bulgaria<br>
+                                Links:   <a href="http://www.niggg.bas.bg/wp-content/uploads/2018/11/geography/gis/en/R_Vatseva.html" target="_blank" style="color: orange;">http://www.niggg.bas.bg/wp-content/uploads/2018/11/geography/gis/en/R_Vatseva.html</a><br>
+                                Email: <a href="mailto:rvatseva@gmail.com" style="color: orange;"> rvatseva@gmail.com </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" style="margin-top: 1rem">
+                    <h4 class="cos-strong">Office Assistant</h4>
+                    <hr>
+                    <div class="col-12 cos-modal2">
+
+                        <br>
+                        <div class="col-md-3 col-xs-12" >
+                            <img class="img-responsive" th:src="@{/img/Members/mazaiyang.jpg}">
+                            <br>
+                        </div>
+                        <div class="m-fsz col-md-9 col-xs-12 m-center">
+                            <strong> Zaiyang Ma </strong><br>
+
+                            <p>Ph.D. Candidate<br>
+                                Nanjing Normal University, China <br>
+                                Email: <a href="mailto:mzaiyang@outlook.com" style="color: orange;"> mzaiyang@outlook.com </a><br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--BoardMembers3-->
+
+
+        <!--JoinUs4-->
+        <div class="row" id="JoinUs">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Membership</h3>
+                <hr>
+                <div class="cos-modal">MGSC membership is free of charge. Below are the benefits for MGSC members:
+                </div>
+                <div class="cos-modal">
+                    <ul>
+                        <li>Participation in all IGU-MGSC conferences and awards competition;</li>
+                        <li>Joining the mailing list to receive updates;</li>
+                        <li>Free copies of IGU-MGSC international reports presented to IGU-MGSC assemblies and the published
+                            conference proceedings upon request;</li>
+                        <li>Access to training courses at times as the need is demonstrated and the financial support is
+                            available;</li>
+                        <li>Preferential treatment in exhibitions of IGU-MGSC;</li>
+                    </ul>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">New Application&nbsp;/&nbsp;Renewal&nbsp;/&nbsp;Update</h3>
+                <hr>
+                <div class="cos-modal">Membership should be applied through an electronic application form. Membership Application Form should
+                    be emailed to Chairman and Secretary General. We will email you a unique Member ID. If you have registered this site,
+                    you can link the Member ID to your account.<br><br>Your membership needs to be renewed on a yearly basis.
+                    You can renew your future membership online in the account one month before your membership expires.
+                </div>
+                <div class="cos-modal">
+                    <br><br>
+                    <i class="fa fa-paperclip"><a th:href="@{/doc/MGSC Membership application form.docx}"> Membership Application Form</a></i>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Events-News-->
+        <div class="row" id="Events" style="height: 100%">
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" style="padding: 0px;margin-top: 2%">
+                            <el-tabs tab-position="left" v-model="activeTabName">
+                                <el-tab-pane label="2022" name="2022">
+                                    <div class="col-md-10  col-xs-11 col-sm-10" style="margin-left:1.5%;" >
+                                        <el-collapse v-model="activeNewsName" accordion>
+                                            <el-collapse-item title="Call for Nominations - IGU Outstanding Achievement Award and Excellent Young Scholar Award in Modeling Geographical Systems (2022)" name="Call-for-Nominations">
+                                                <div id="Call-for-Nominations" class="cos-modal">
+                                                    <strong class="home-h">Call for Nominations - IGU Outstanding Achievement Award and Excellent Young Scholar Award in Modeling Geographical Systems (2022)
+                                                    </strong><br>
+                                                    <hr>
+                                                    <p>The <strong>IGU Outstanding Achievement Award and Excellent Young Scholar Award in Modeling Geographical Systems (OAA 2022 and YSA 2022)</strong> are receiving nominations to recognize researchers for long and meritorious contributions to the community of geographic modeling research or young researchers for meritorious academic contributions in their early career. An awards committee will be organized by IGU through its Modeling Geographical Systems Commission (IGU MGSC), and it will solicit and evaluate the nominees and presents the awards to the individuals in light of their excellent scientific achievements and contributions.
+                                                    </p>
+                                                    <h3><strong>Eligibility</strong></h3>
+                                                    <li>Nominees for the OAA 2022 are expected to have outstanding research contributions to geographic modeling and relevant fields.</li>
+                                                    <li>Nominees for the YSA 2022 should have received a doctoral degree in the last seven years (no earlier than 2015) and have significant research contributions to geographic modeling and relevant fields.</li>
+                                                    <li>Nominees for the YSA 2022 also should be IGU MGSC members.</li><br>
+                                                    <h3><strong>Submission Instructions</strong></h3>
+                                                    To nominate an award for OAA 2022, please submit the following documents as PDF files:
+                                                    <li><strong>Nomination Letter: </strong> A personal statement is needed to describe the nominee’s contributions and achievements. The statement should be no more than 500 words.</li>
+                                                    <li><strong>Curriculum Vitae or Resume: </strong>The latest curriculum vitae or resume of nominees.</li>
+                                                    <li><strong>Certificate of Academic Degree: </strong>The certificate can prove the eligibility of nominees.</li>
+                                                    <li><strong>Two Recommendation Letter: </strong>The recommender must have a formal professional role that allows them to assess the nominee’s achievements, current academic status and progress. The recommendation letter should be signed by the recommenders. Once prepared, the letter should be converted to a PDF format.</li><br>
+                                                    The Nomination Letter Template can be found under the “Awards” page of the official website of IGU MGSC (http://www.igu-geomodeling.com/).<br>
+                                                    Nominators or nominees need to merge the mentioned documents into a single PDF file and submit it to Zaiyang Ma (<a href="mailto:mzaiyang@outlook.com">mzaiyang@outlook.com</a> or <a href="mailto:zy_ma327@126.com">zy_ma327@126.com</a> ), and include “IGU MGSC Outstanding Achievement Award” or “IGU MGSC Excellent Young Scholar Award” in the email subject line.<strong> (Self-nominations are not accepted.)</strong><br>
+
+                                                    <h3><strong>Important date</strong></h3>
+                                                    The tentative dates for submission and notifications are as follows.<br>
+                                                    <li>Deadline for submission: Jun 30, 2022</li>
+                                                    <li>Deadline for notification to the awardee: Jul 31, 2022</li>
+
+                                                    <h3><strong>Contact</strong></h3>
+                                                    Dr. Xintao Liu: <a href="mailto:xintao.liu@polyu.edu.hk">xintao.liu@polyu.edu.hk</a><br>
+                                                    Zaiyang Ma: <a href="mailto:mzaiyang@outlook.com">mzaiyang@outlook.com</a> & <a href="mailto:zy_ma327@126.com">zy_ma327@126.com</a><br>
+                                                </div>
+
+                                            </el-collapse-item>
+
+                                        </el-collapse>
+
+                                    </div>
+                                </el-tab-pane>
+                                <!--news2021-->
+                                <el-tab-pane label="2021" name="2021">
+                                    <div class="col-md-10  col-xs-11 col-sm-10" style="margin-left:1.5%;" >
+                                        <div id="2021">
+                                            <el-collapse v-model="activeNewsName" accordion>
+                                                <el-collapse-item title="Minutes of the second board meeting of Modeling Geographical Systems Commission (MGSC)" name="Minutes-of-the-second">
+                                                    <div id="Minutes-of-the-second" class="cos-modal">
+                                                        <strong class="home-h">Minutes of the second board meeting of Modeling Geographical Systems Commission (MGSC)</strong><br>
+                                                        <small class="home-date">Sep 20th, 2021 <br></small>
+                                                        <hr>
+                                                        <p>
+                                                            <strong>Time: </strong>8:00pm, Sept 20, 2021 (Beijing Time)<br>
+
+                                                            <strong>Venue: </strong>Online via Zoom<br>
+                                                            <strong>Attendees</strong> (Alphabetically ordered by last name):
+
+                                                        <ol>
+                                                            <li>Prof. Min Chen</li>
+                                                            <li>Prof. Christophe Claramunt</li>
+                                                            <li>Prof. Barry Croke</li>
+                                                            <li>Dr. Manish Kumar</li>
+                                                            <li>Prof. Xin Li</li>
+                                                            <li>Dr. Xintao Liu</li>
+                                                            <li>Prof. Guonian Lü</li>
+                                                            <li>Mr. Zaiyang Ma</li>
+                                                            <li>Dr. Erik Nixdorf</li>
+                                                            <li>Prof. Paul Torrens</li>
+                                                            <li>Prof. Rumiana Vatseva</li>
+                                                        </ol>
+                                                        Prof. Min Chen in the meeting introduced the events and news that happened this year, followed by discussing with the board members about the future activities. The major topics and discussion are shown below:
+                                                        </p>
+                                                        <p>
+                                                        <ol>
+                                                            <li><b>The progress in member registration.</b>
+                                                                <ul>
+                                                                    <li>There are 88 scholars and students registered as IGU-MGSC members.</li>
+                                                                </ul> </li>
+                                                            <li><b>Review of important events</b>
+                                                                <ul>
+                                                                    <li>        The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on Chinese geographical analysis models) supported by IGU-MGSC on January 16-17, 2021.</li>
+                                                                    <li>Start calling for new members from May 2021.</li>
+                                                                    <li>The first training course on Chinese geographical analysis models supported by IGU-MGSC on August 9-16, 2021.</li>
+                                                                    <li>IGU 19th International Conference on Spatial Data Handling and Geographic Intelligence co-organized by MGSC on August 13-14, 2021.</li>
+                                                                    <li>The 2nd International Geography and Sustainability Workshop (online) co-organized by MGSC will be held on November 23-24, 2021.</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><b>Special issues</b>
+                                                                <ul>
+                                                                    <li>Applied Energy | SI: Energy digitization with spatial intelligence</li>
+                                                                    <li>Transactions in GIS | SI: Virtual Geographic Environment</li>
+                                                                    <li>Frontiers in Public Health (Environmental Health and Exposome) | SI: Smart Urban Environmental Health from Multi-Scale, Multimedia, Multi-Exposure, Multi-Target Perspectives</li>
+                                                                    <li>Water | SI: Advances in Hydroinformatics for Water Data Management and Analysis</li>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </li>
+                                                            <li><b>Calling for new members</b>
+                                                                <ul>
+                                                                    <li>Most of our members are from Asia and Europe. We should call for more members from other regions, like North America.</li>
+                                                                    <li>Inviting the people who attend the conference or webinar to be our members.</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><b>Collecting news on geographic modeling and simulation and spreading to our colleagues via our website and mail list</b>
+                                                                <ul>
+                                                                    <li>We are collecting messages regarding the topic of IGU-MGSC or any conferences, special issues, and job positions in the geographic modeling field. These messages will be posted on our website and spread to our members through group mails every 3 months.</li>
+                                                                    <li>We can post our news through Twitter/Facebook/Researchgate.</li>
+                                                                </ul></li>
+                                                            <li><b>Hosting or organizing conferences, workshops, and webinar</b>
+                                                                <ul>
+                                                                    <li>Do we organize/co-organize a session during the IGU-UGI Centennial Congress in Paris (July 18-22, 2022) ?</li>
+                                                                    <img th:src="@{/img/Events/Minutes-of-the-second-1.png}" style="width: 100%">
+                                                                    <li>The speakers of the webinar: the honorary advisory members, the board members, award winners.</li>
+                                                                </ul></li>
+                                                            <li><b>Four awards by committee meeting: Best Paper, Excellent Young Scholar, Distinguished Scholar and Distinguished Service.</b>
+                                                                <ul>
+                                                                    <li>Calling for three awards this year: Best Paper Award (journal paper), Excellent Young Scholar Award, and Distinguished Scholar Award.</li>
+                                                                    <li>Award preparation: (1) calling for award nominations, (2) organizing award committee, and (3) announcing award winners.</li>
+                                                                </ul></li>
+                                                            <li><b>Any other business?</b>
+                                                                <ul>
+                                                                    <li>Updating the activities and news on the website.
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><b>Online photo of all attendees was taken.</b><br>
+
+                                                                <img th:src="@{/img/Events/Minutes-of-the-second-2.png}" style="width: 100%">
+
+
+                                                            </li>
+
+                                                        </ol>
+                                                        </p>
+
+
+
+                                                    </div>
+
+                                                </el-collapse-item>
+                                                <el-collapse-item title="IGU 19th International Conference on Spatial Data Handling and Geographic Intelligence" name="IGU-19th-International">
+                                                    <div id="IGU-19th-International" class="cos-modal">
+                                                        <strong class="home-h">IGU 19th International Conference on Spatial Data Handling and Geographic Intelligence</strong><br>
+                                                        <small class="home-date">Aug 13th-14th, 2021 <br></small>
+                                                        <hr>
+                                                        <p>During August 13-14, 2021, the 19th International Conference on Spatial Data Handling and Geographic Intelligence was successfully held. The IGU Comission on Geographical Information Science and Commission on Modeling Geographical Systems co-organized this conference.</p><br>
+                                                        <img th:src="@{/img/Events/IGU-19th-International.png}" style="height: 80%;text-align: center">
+                                                    </div>
+
+                                                </el-collapse-item>
+                                                <el-collapse-item title="The first training course on Chinese geographical analysis models" name="The-first-training-course">
+                                                    <div id="The-first-training-course" class="cos-modal">
+                                                        <strong class="home-h">The first training course on Chinese geographical analysis models</strong><br>
+                                                        <small class="home-date">Aug 9th-16th, 2021 <br></small>
+                                                        <hr>
+                                                        <p>The 1st training session on Chinese geographic analysis models was successfully held during August 9th-16th, 2021. This training session was mainly organized by Nanjing Normal University, the Geographical Society of China (GSC), China Society of Natural Resources (CSNR), China Association for Geospatial Information Society (CAGIS), Chinese National Committee of International Society for Digital Earth (ISDE). Our Modeling Geographical Systems Commission of the International Geographical Union (IGU) was also one of the co-organizers to support the training session. </p>
+                                                        <img th:src="@{/img/Events/The-first-training-course.png}"style="width: 100%">
+                                                        <p>This training session focused on four hydrological models: Distributed Time Variant Gain Model (DTVGM) developed by the team of Prof. Jun Xia (Wuhan University, the Academician of CAS), Uncertainty Quantification Python Laboratory (UQ-PyL) developed by the team of Prof. Qingyun Duan (Hohai University), Geomorphology-Based Hydrological Model (GBHM) developed by the team of Prof. Dawen Yang(Tsinghua University), and Spatially Explicit Integrated Modeling System (SEIMS) developed by the team of Prof. Junzhi Liu (Nanjing Normal University, Lanzhou University). There were 1280 students from 384 universities, institutes, and companies in 10 nations attending the online training session.</p><br>
+                                                        <p>The success of this training session can promote the construction of the Chinese geographic model ecosystem and the open and sustainable geographic model community. It can also facilitate the model reusing, knowledge sharing, and collaborative geographic research.</p>
+                                                    </div>
+                                                </el-collapse-item>
+                                                <el-collapse-item title="Minutes of the first board meeting of Modeling Geographical Systems Commission (MGSC)" name="Minutes-of-the-first">
+                                                    <div id="Minutes-of-the-first" class="cos-modal">
+                                                        <strong class="home-h">Minutes of the first board meeting of Modeling Geographical Systems Commission (MGSC)</strong><br>
+                                                        <small class="home-date">Jan 27, 2021 <br></small>
+                                                        <hr>
+                                                        <p>
+                                                            <b>Time: </b>7:00PM, Jan 27, 2021 (Beijing Time)<br>
+                                                            <b>Venue: </b>Online via Zoom<br>
+                                                            <b>Attendees(Alphabetically ordered by last name): </b>
+                                                        <ol>
+                                                            <li>Prof. Michael Batty</li>
+                                                            <li>Prof. Min Chen</li>
+                                                            <li>Prof. Tao Cheng</li>
+                                                            <li>Prof. Christophe Claramunt</li>
+                                                            <li>Prof. Barry Croke</li>
+                                                            <li>Prof. Andreas Koch</li>
+                                                            <li>Dr. Manish Kumar</li>
+                                                            <li>Prof. Mei-Po Kwan</li>
+                                                            <li>Prof. Xin Li</li>
+                                                            <li>Dr. Xintao Liu</li>
+                                                            <li>Prof. Antonio Paez </li>
+                                                            <li>Dr. Karel Stanek</li>
+                                                            <li>Prof. Josef Strobl</li>
+                                                            <li>Prof. Jinfeng Wang</li>
+                                                        </ol>
+                                                        Prof. Min Check kicked off the meeting by introducing himself, followed by the board members introducing themselves. The major topics and discussion are shown below:
+                                                        <ol>
+                                                            <li>
+                                                                The website of MGSC has been launched at http://www.igu-geomodeling.com. Prof. Min Chen went through the website and introduced the main functions.
+
+                                                            </li>
+
+                                                            <li>
+                                                                Four awards by committee meeting: Best Paper, Excellent Young Scholar, Distinguished Scholar and Distinguished Service.
+
+                                                            </li>
+
+                                                            <li>
+                                                                Membership of MGSC: renew annually, free of charge, list on website.
+
+                                                            </li>
+
+                                                            <li>
+                                                                Objectives to achieve for four years.
+                                                            </li>
+
+                                                            <li>
+                                                                Events (workshop, conference, etc.) to be organized in 2021.
+
+                                                            </li>
+
+                                                            <li>
+
+                                                                Regular meeting for every half year.
+
+                                                                Reasonable (Michael Batty, Mei-Po Kwan). To be scheduled in due course.
+                                                            </li>
+
+                                                            <li>
+                                                                Other related stuff?<br>
+                                                                N/A
+                                                            </li>
+
+                                                            <li>
+                                                                Online photo of all attendees was taken.
+
+                                                                <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                                                    <img th:src="@{/img/Events/Minutes-of-the-first.png}" style="width: 100%">
+                                                                </div>
+
+                                                            </li>
+                                                        </ol>
+
+
+                                                        </p>
+
+
+
+                                                        <br>
+
+                                                        <p></p>
+                                                    </div>
+                                                </el-collapse-item>
+                                                <el-collapse-item title="The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic geographical analysis models)" name="The-2nd-national-forum">
+                                                    <div id="The-2nd-national-forum" class="cos-modal">
+                                                        <strong class="home-h">The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic geographical analysis models)</strong><br>
+                                                        <small class="home-date">Jan 16th-17th, 2021<br></small>
+                                                        <hr>
+                                                        <p> &nbsp;&nbsp;&nbsp;&nbsp;The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic
+                                                            geographical analysis models) was successfully held in Nanjing Normal University during Jan 16th-17th, 2021. This forum
+                                                            was mainly organized by Key Laboratory of the Virtual Geographic Environment, Ministry of Education of PRC and School of Geography,
+                                                            Nanjing Normal University with several co-organizers including the Geographical Society of China (GSC), China Society of Natural
+                                                            Resources (CSNR), China Association for Geospatial Information Society (CAGIS), Chinese National Committee of International Society
+                                                            for Digital Earth (ISDE), International Environmental Modelling and Software Society (iEMSs), Modeling Geographical Systems Commission
+                                                            of International Geographical Union (IGU), Commission on Geospatial Analysis and Modeling of International Cartographic Association (ICA),
+                                                            Young Geographer Working Group of Asian Geographical Association (AGA), Jiangsu Center for Collaborative Innovation in Geographical Information
+                                                            Resource Development and Application, and Yangtze River Delta State Sub-center of National Earth System Science Data Center. Due to the
+                                                            prevention and control measures of COVID-2019, the forum was synchronously conducted in the onsite and offsite way with the support of
+                                                            Tencent Meeting, ZOOM, and Bilibili Live. <br></p>
+
+                                                        <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                                            <img th:src="@{/img/Events/The-2nd-national-forum-1.png}"   style="width: 100%">
+                                                        </div>
+
+                                                        <p>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;The forum began with the opening ceremony hosted by Prof. Linwang Yuan (the Dean of the School of Geography) on
+                                                            Jan 16th. Prof. Guoxiang Chen, the President of Nanjing Normal University, Prof. R. B. Singh, the
+                                                            Secretary General and Treasurer of IGU, Prof. Stefan Reis, the President of iEMSs, Prof. Guoyou Zhang,
+                                                            the Vice President and Secretary General of GSC, Prof. Shengkui Cheng, the President of CSNR, Prof. Zengning Wang,
+                                                            the Secretary General of CAGIS, and Prof. Jiantao Bi, the Deputy Secretary General of Chinese National Committee
+                                                            of ISDE were invited to give speeches. Moreover, Prof. Huijun Wang, the Academician of Chinese Academy of Sciences
+                                                            (CAS), Prof. Huayu Lu, the Vice President of GSC, Prof. Lijie Pu, the Vice President of CSNR, Prof. Guonian Lv,
+                                                            the Academic Leader of Geography Sciences of Nanjing Normal University and Prof. Min Chen, the Chair of Modeling
+                                                            Geographical Systems Commission, IGU presented the opening ceremony.<br>
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;During the forum, four Academicians of CAS, Prof. Huijun Wang from Nanjing University of
+                                                            Information Science & Technology, Prof. Peng Cui from Institute of Mountain Hazards and
+                                                            Environment (IMHE), CAS, Prof. Bojie Fu from Beijing Normal University, Prof. Jun Xia from Wuhan
+                                                            University, as well as Prof. Jia Wang from Division I, Department of Earth Sciences, National
+                                                            Natural Science Foundation of China, Prof. Jinshui Wu from the Institute of Subtropical Agriculture
+                                                            (ISA), CAS, Prof. Yao Huang from the Institute of Botany, CAS, Prof, Wenjie Dong from School of
+                                                            Atmospheric Sciences, Sun Yat-sen University, Prof. Bin Wang from Institute of Atmospheric Physics,
+                                                            CAS, Prof. Xiangzheng Deng from the Institute of Geographic Sciences and Natural Resources Research,
+                                                            CAS, Prof. Xia Li from School of Geography Sciences, East China Normal University, Prof. Tianxiang
+                                                            Yue from the Institute of Geographic Sciences and Natural Resources Research, CAS, Prof. Jinfeng Wang
+                                                            from the Institute of Geographic Sciences and Natural Resources Research, CAS, Prof. Weimin Ju from the
+                                                            International Institute of Earth System Science, Nanjing University, Prof. Xin Li from the Institute of
+                                                            Tibetan Plateau Research, CAS, Prof. Chunmiao Zheng from School of Environmental Science and Engineering,
+                                                            Southern University of Science and Technology, Prof. Dawen Yang from School of Civil Engineering,
+                                                            Tsinghua University, Prof. Qingyun Duan from College of Hydrology and Water Resources, Hohai University,
+                                                            and Prof. Chuanhai Wang from College of Hydrology and Water Resources, Hohai University were invited to
+                                                            attend the forum. They gave presentations to share their work and achievements in the related domains of
+                                                            geographic modeling and simulation together with Prof. A-Xing Zhu and Prof. Min Chen who are from School
+                                                            of Geography, Nanjing Normal University. Because of these brilliant presentations, a large number of
+                                                            researchers and students (Up to 20 thousand people) are attracted to watch the forum live on the web.<br>
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;In addition, the training course on domestic geographical analysis models was launched in this forum.
+                                                            President Guoxiang Chen, Prof. Huijun Wang, Prof. Huayu Lu, Prof. Lijie Pu, Prof. Zengning Wang
+                                                            and Prof. Jiantao Bi attended the unveiling ceremony. Then, academician Prof. Xia’s team Jun,
+                                                            Prof. Qingyun Duan’s team, Prof. Dawen Yang’s team, and Dr. Junzhi Liu were invited as tutors
+                                                            of the first training course and attended the appointment ceremony.
+                                                        </p>
+                                                        <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                                            <img th:src="@{/img/Events/The-2nd-national-forum-2.jpg}"  style="width: 100%">
+                                                        </div>
+                                                        <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                                            <img th:src="@{/img/Events/The-2nd-national-forum-3.jpg}"  style="width: 100%">
+                                                        </div>
+                                                        <p>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;The National Geographic Modeling and Simulation Forum, which was founded in 2017 by Nanjing Normal University, aims to explore cutting-edge progress and scientific breakthroughs in the field of geographic modeling and simulation and to provide a unique platform for sharing scientific research achievements, exchange academic ideas, and strengthening academic cooperation among Chinese geographical modelers. Focusing on the development of domestic geographical analysis models and modeling platforms, this forum calls on Chinese geographical modelers to work together to develop domestic geographical analysis models and to build an ecological circle of autonomous model systems for the target of constructing Chinese autonomous geographical simulators and promoting the international researches in the fields of geographic modeling and simulation.
+                                                        </p>
+                                                    </div>
+                                                </el-collapse-item>
+                                                <el-collapse-item title="Call for Abstracts | The session of Geographic information modelling and simulation in the era of big data in IGU Paris 2022" name="Call-for-Abstracts">
+                                                    <div id="Call-for-Abstracts" class="cos-modal">
+                                                        <strong class="home-h">Call for Abstracts | The session of Geographic information modelling and simulation in the era of big data in IGU Paris 2022</strong><br>
+                                                        <small class="home-date">June 18 to 22, 202<br></small>
+                                                        <hr>
+                                                        <p> &nbsp;&nbsp;&nbsp;&nbsp;The centennial congress of the International Geographical Union (IGU) will be held in Paris from June 18 to 22, 2022.
+                                                            Around the theme "Time for Geographers" of the congress, the Modeling Geographical Systems Commission (MGSC) of IGU will organize a virtual
+                                                            session–Geographic information modelling and simulation in the era of big data–to promote idea exchange and achievement sharing in this field.<br></p>
+
+                                                        <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                                            <img th:src="@{/img/Events/Call-for-Abstracts.png}"   style="width: 100%">
+                                                        </div>
+                                                        <h3>Session description</h3>
+                                                        <p>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;In the age of Internet, big data has become an important resource of human society.
+                                                            It is growing exponentially and rapidly affecting the development and transformation of human society.
+                                                            There are new opportunities that have also been taking place in the development of geography.
+                                                            In this context, the stage of "measurement revolution" and the application of geographic information system
+                                                            in geographic models and geographic information analyses have been past, and now they are stepping into the era of big data.<br>
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;On one hand, we need to find a way to invert the process of changes in the earth’s surface and establish a
+                                                            geoscience information map through the spatiotemporal digital construction based on computational science. On the
+                                                            other hand, with the support of big data and artificial intelligence, we need to explore the complex laws of earth
+                                                            surface changes relying on the professional knowledge of geosciences, through which we can discover new geoscience
+                                                            knowledge and realize holographic intelligent planning and prediction of the future. For example, there has been COVID-19
+                                                            spreading globally since early 2020 until nowadays. To tackle the pandemic, spatiotemporal big data analysis and geographic
+                                                            modelling have been put forward with higher requirements in terms of geographic detection of epidemic risk, spatiotemporal
+                                                            diffusion laws, dissemination of early warnings, medical resource analysis, online public opinion monitoring, etc..<br>
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;This session aims to discuss and explore related theories,
+                                                            methods and potential practices, facilitating communication between experts from different domains, encouraging extensive discussion regarding the
+                                                            potential directions of the field, and promoting further research for a bright future.
+                                                        </p>
+                                                        <h3>Abstract submission</h3>
+                                                        <ul>
+                                                            <li>Abstracts should be submitted in English.</li>
+                                                            <li>Please follow the instructions below for writing your abstract in the submission form:<br>
+                                                                1.	Title: maximum of 255 characters (spaces included);<br>
+                                                                2.	Resume: Text should be a maximum of 2000 characters (spaces included);<br>
+                                                                3.	Keywords: maximum of 5.<br>
+                                                                4.	References: maximum of 5.<br>
+
+                                                            </li>
+                                                            <li>Website: <a target="_blank" href="https://www.ugiparis2022.org/en/abstracts-submission/29">https://www.ugiparis2022.org/en/abstracts-submission/29</a>.</li>
+                                                        </ul>
+                                                        <h3>Now, the call for abstracts is open! You are invited to submit your abstracts for oral presentations.Abstract submission
+                                                        </h3>
+                                                        <p>The deadline for the abstract proposals is January 11th, 2022.<br>
+                                                            The announcement of the accepted abstracts is expected by January 21st, 2022.<br>
+
+                                                            For other information about the centennial congress, please refer to: <br>
+
+                                                            <a href="https://www.ugiparis2022.org/en/scientificinformation/1" target="_blank">https://www.ugiparis2022.org/en/scientificinformation/1.</a>
+                                                        </p>
+                                                    </div>
+                                                </el-collapse-item>
+                                            </el-collapse>
+
+                                            <!--                                            <hr style="border-bottom:3px double grey;">-->
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </el-tab-pane>
+<!--                                news2020-->
+                                <el-tab-pane label="2020" name="2020">
+                                    <div class=" col-md-10  col-xs-11 col-sm-10" style="margin-left:1.5%;" >
+                                        <div id="2020">
+                                            <div id="The-general-election" class="cos-modal">
+                                                <strong class="home-h">The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU)</strong><br>
+                                                <small class="home-date">September 29,  2020<br></small>
+                                                <hr>
+                                                <p> &nbsp;&nbsp;&nbsp;&nbsp;The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU),  was
+                                                    a success. At the invitation of the International Geographical Union,  Professor Chen Min of Nanjing Normal University
+                                                    will be the chairman of the Modeling Geographical Systems commission. At the same time,  the IGU of MGSC selected a
+                                                    Secretary-General,  10 steering committee members and 10 Honorary advisory members. <br></p>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                    </div>
+
+                                </el-tab-pane>
+
+
+                            </el-tabs>
+<!--                            <ul class="nav nav-pills nav-stacked newsnav col-md-1 " id="newsnav" style="font-size: 0.8rem;cursor: pointer;white-space: nowrap">-->
+<!--                                <li id="2020news" class="active" onclick="newsnav_click(this)"><a data-href="#2020" >2020</a></li>-->
+<!--                                <li id="2021news" onclick="newsnav_click(this)"><a data-href="#2021">2021</a></li>-->
+<!--                            </ul>-->
+
+
+                        </div>
+
+        </div>
+
+
+        <!--Publications-memberspapers-->
+        <div class="row" id="memberspaper" style="height: 70%">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Members' Papers</h3>
+                <hr>
+                <div class="cos-modal">
+                    <P>Coming soon...</P>
+                    <!--                    <br><br><br><br><br><br><br><br><br><br><br><br>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="row" id="specialissue" >
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Special Issue</h3>
+                <hr>
+                <div class="col-xs-12 col-md-12">
+                    <strong style="font-size: 1.2rem"><a  target="_blank" href="https://onlinelibrary.wiley.com/page/journal/14679671/homepage/featured-collections#3">Transactions in GIS | Virtual Geographic Environment </a></strong><br>
+                    <br>
+                    <p>
+                        The geographic environment is a huge and complex system,
+                        in which existing various natural processes, human activities,
+                        and information interactions. Researchers have made and are continually
+                        making efforts in understanding this complicated environment. In addition to
+                        in-depth exploration in a single discipline, study that integrating knowledge
+                        from multiple fields is getting more and more attention. Following such a trend,
+                        Virtual Geographic Environment (VGE) was proposed as a new generation of geographic analysis
+                        tool. The construction of a VGE brings Geographic Information Science (GIS) together with natural
+                        geography and human geography, and it mainly aims to form a digital twin of the real world.
+                        In a VGE, different experiments can be conducted and potential solutions for the real world
+                        can be explored based on geographic rules. In this context, we propose a Special Issue that
+                        targets on constructing VGE based on ubiquitous geographic information, which
+                        can support better modeling and simulation of the real world.
+                    </p>
+                    <br>
+
+                    <p>Full details of the call are available <a target="_blank" href="https://onlinelibrary.wiley.com/pb-assets/14679671/TGIS%20SI%20Virt%20Geo%20Enviro%20Construction-1611337805923.pdf">here. </a></p>
+                    <br>
+
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="col-xs-12 col-md-12">
+                    <strong style="font-size: 1.2rem"><a  target="_blank" href="https://www.journals.elsevier.com/applied-energy/call-for-papers/special-issue-on-energy-digitization-with-spatial-intelligen">Applied Energy | Energy digitization with spatial intelligence</a></strong><br>
+                    <br>
+                    <p>
+                        The digitization of energy systems provides potential growth
+                        in energy efficiency by integrating and analyzing data for
+                        environmental management. Three emerging trends in using digital
+                        technology, active energy management systems (EMSs), data-driven
+                        consumer engagement platforms, and new performance-based revenue
+                        models, support the significant improvement of energy efficiency.
+                        Specifically, data detection technologies (e.g., sensors and smart meters)
+                        are used not only to collect data on the production process but also to determine energy consumption factors.
+                    </p>
+                    <br>
+
+                    <p>Full details of the call are available <a target="_blank" href="https://www.journals.elsevier.com/applied-energy/call-for-papers/special-issue-on-energy-digitization-with-spatial-intelligen">here. </a></p>
+                    <br>
+
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="col-xs-12 col-md-12">
+                    <strong style="font-size: 1.2rem;"><a target="_blank" href="https://www.frontiersin.org/research-topics/20199/smart-urban-environmental-health-from-multi-scale-multimedia-multi-exposure-multi-target-perspective">Smart Urban Environmental Health from Multi-Scale, Multimedia, Multi-Exposure, Multi-Target Perspectives</a></strong><br>
+                    <br>
+                    <p>
+                        Over half of the global population live in urbanized areas.
+                        These areas have become the geographic focus of resource consumption and
+                        chemical emissions. Pollutants among the urban environmental multi-media
+                        (including water, soil, air, etc.) are intensifying, causing chronic public
+                        health risk and increase in hazard via multi-exposure pathways and multi-scale
+                        distribution differences. One way to measure the impact is with the Environmental
+                        Health Risk Management (EHRM), widely used as a policy tool. This multi-disciplinary
+                        tool collects data for hazard identification, exposure assessment, dose-response
+                        assessment, risk characterization, and risk countermeasures.
+
+                    </p>
+                    <br>
+
+                    <p>Full details of the call are available <a target="_blank" href="https://www.frontiersin.org/research-topics/20199/smart-urban-environmental-health-from-multi-scale-multimedia-multi-exposure-multi-target-perspective">here. </a></p>
+                    <br>
+
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="col-xs-12 col-md-12">
+                    <strong style="font-size: 1.2rem;"><a  target="_blank" href="https://www.mdpi.com/journal/water/special_issues/hydroinformatics_data">Water | Advances in Hydroinformatics for Water Data Management and Analysis</a></strong><br>
+                    <br>
+                    <p>
+                        Recent years have witnessed a massive increase in the volume and quality of
+                        water data available to aid water resources decision makers, managers, and
+                        scientists. This has been accompanied by exponential growth in both desktop
+                        and cloud computing data storage and computational capabilities. As a result,
+                        there are abundant opportunities to drastically change how water data are collected,
+                        managed, disseminated, and analyzed—which should ultimately have significant positive
+                        impacts on water science, engineering, and management. Indeed, we are at the beginning
+                        of a new era in water data science, which brings with it many new and interesting technological
+                        and scientific challenges and opportunities. This Special Issue of Water is intended to bring
+                        together some of the latest research on hydroinformatics for water data management and analysis.
+                        Toward this goal, we are seeking submissions in a wide range of topics including data collection
+                        and analysis tools and technologies, hydrologic information systems, distributed hydrologic modeling and simulation,
+                        open water data initiatives, big data in hydrology, geographic information technologies in water data, and related areas.
+
+                    </p>
+                    <br>
+
+                    <p>Full details of the call are available <a target="_blank" href="https://www.mdpi.com/journal/water/special_issues/hydroinformatics_data">here. </a></p>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Publications-Journals-->
+        <div class="row cos-modal2" id="Journals" >
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Journals</h3>
+                <hr>
+
+                <div class="col-xs-12 col-md-12">
+                    <div class="col-md-3 col-xs-12" >
+                        <br>
+                        <a target="_blank" href="https://www.sciencedirect.com/journal/earth-science-reviews"><img class="img-responsive" th:src="@{/img/Journals/Earth-Science Reviews.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center">
+                        <br>
+                        <strong><a target="_blank"  href="https://www.sciencedirect.com/journal/earth-science-reviews">Earth-Science Reviews </a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 0012-8252<br>
+                            <label class="stronglabel">Impact Factor</label>: 9.724 (2019) <br>
+                            <label class="stronglabel">Description</label>: Covering a much wider field than the usual specialist journals,  Earth Science Reviews publishes review articles dealing with all aspects of Earth Sciences,  and is an important vehicle for allowing readers to see their particular interest related to the Earth Sciences as a whole.<br>
+                        </p>
+                    </div>
+                </div>
+
+                <!--                <div class="col-xs-12 col-md-12">-->
+                <!--                    <hr>-->
+                <!--                    <div class="col-md-3 col-xs-12"   >-->
+                <!--                    <a href="https://www.sciencedirect.com/journal/remote-sensing-of-environment"><img class="img-responsive" th:src="@{/img/Journals/RSE.jpg}" ></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >-->
+                <!--                      <strong><a href="http://www.sciencedirect.com/science/journal/01436228">ISPRS Journal of Photogrammetry and Remote Sensing</a></strong><br>-->
+                <!--                      <p>-->
+                <!--                          <label class="stronglabel">ISSN</label>: 0924-2716<br>-->
+                <!--                          <label class="stronglabel">Impact Factor</label>: 9.085 (2019) </label><br>-->
+                <!--                          <label class="stronglabel">Description</label>: Remote Sensing of Environment (RSE) serves the Earth observation community with the publication of results on the theory,  science,  applications,  and technology of remote sensing studies. Thoroughly interdisciplinary,  RSE publishes on terrestrial,  oceanic and atmospheric sensing. The emphasis of the journal is on biophysical and quantitative approaches to remote sensing at local to global scales.<br>-->
+
+                <!--                      </p>-->
+                <!--                    </div> -->
+                <!--                </div>-->
+
+                <!--                <div class="col-xs-12 col-md-12">-->
+                <!--                    <hr>-->
+                <!--                    <div class="col-md-3 col-xs-12"   >-->
+                <!--                    <a href="https://www.sciencedirect.com/journal/remote-sensing-of-environment"><img class="img-responsive" th:src="@{/img/Journals/ISPRS.jpg}" ></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >-->
+                <!--                      <strong><a href="https://www.isprs.org/">Remote Sensing of Environment</a></strong><br>-->
+                <!--                      <p>-->
+                <!--                          <label class="stronglabel">ISSN</label>: 0034-4257<br>-->
+                <!--                          <label class="stronglabel">Impact Factor</label>: 7.319 (2019) <br>-->
+                <!--                          <label class="stronglabel">Description</label>: The ISPRS Journal of Photogrammetry and Remote Sensing (P&RS) is the official journal of the International Society for Photogrammetry and Remote Sensing (ISPRS). The Journal provides a channel of communication for scientists and professionals in all countries working in the many disciplines that employ photogrammetry,  remote sensing,  spatial information systems,  computer vision,  and related fields. The Journal is designed to serve as a source reference and archive of advancements in these disciplines.<br>-->
+                <!--                    </div> -->
+                <!--                </div>-->
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a  target="_blank" href="https://www.sciencedirect.com/journal/environmental-modelling-and-software"><img class="img-responsive" th:src="@{/img/Journals/ENVIRON MODELL SOFTW.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a target="_blank"  href="https://www.sciencedirect.com/journal/environmental-modelling-and-software">Environmental Modelling & Software</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1364-8152<br>
+                            <label class="stronglabel">Impact Factor</label>: 4.807 (2019) <br>
+                            <label class="stronglabel">Description</label>: Environmental Modelling & Software publishes contributions,  in the form of research articles,  reviews,  introductory overviews,  and position papers on advances in the area of environmental modelling and software. Our aim is to improve our capacity to represent,  understand,  predict or manage the behaviour of natural environmental systems,  including air,  water,  and land components,  at all practical scales,  and to communicate those improvements to a wide scientific and professional audience.<br>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a  target="_blank" href="https://www.journals.elsevier.com/computers-environment-and-urban-systems"><img class="img-responsive" th:src="@{/img/Journals/ComputersEnvironmentandUrbanSystems.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a  target="_blank" href="https://www.journals.elsevier.com/computers-environment-and-urban-systems">Computers, Environment and Urban Systems</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 0198-9715<br>
+                            <label class="stronglabel">Impact Factor</label>: 4.655 (2019) <br>
+                            <label class="stronglabel">Description</label>: Computers, Environment and Urban Systems is an interdisciplinary journal publishing cutting-edge and innovative computer-based research on urban systems, systems of cities, and built and natural environments , that privileges the geospatial perspective. The journal provides a stimulating presentation of perspectives, research developments, overviews of important new technologies and uses of major computational, information-based, and visualization innovations.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a  target="_blank" href="https://www.mdpi.com/journal/remotesensing"><img class="img-responsive" th:src="@{/img/Journals/remotesensing.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a  target="_blank" href="https://www.mdpi.com/journal/remotesensing">Remote Sensing</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 2072-4292<br>
+                            <label class="stronglabel">Impact Factor</label>: 4.509 (2019) <br>
+                            <label class="stronglabel">Description</label>: Remote sensing is a technology that engages electromagnetic sensors to measure and monitor changes in the earth’s surface and atmosphere. Normally this is accomplished through the use of a satellite or aircraft. Remote Sensing,  in its third edition,  seamlessly connects the art and science of earth remote sensing with the latest interpretative tools and techniques of computer-aided image processing. Newly expanded and updated,  this edition delivers more of the applied scientific theory and practical results that helped the previous editions earn wide acclaim and become classroom and industry standards.<br>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+
+                        <a  target="_blank" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?reload=true&punumber=8859"><img class="img-responsive" th:src="@{/img/Journals/groRSL.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center">
+                        <strong><a  target="_blank" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?reload=true&punumber=8859">IEEE Geoscience and Remote Sensing Letters</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1545-598X<br>
+                            <label class="stronglabel">Impact Factor</label>: 3.833 (2019) <br>
+                            <label class="stronglabel">Description</label>: IEEE Geoscience and Remote Sensing Letters (GRSL) is a monthly
+                            publication for short papers (maximum length 5 pages) addressing new ideas and formative
+                            concepts in remote sensing as well as important new and timely results and concepts. Papers
+                            should relate to the theory,  concepts and techniques of science and engineering as applied to
+                            sensing the earth,  oceans,  atmosphere,  and space,  and the processing,  interpretation,  and dissemination
+                            of this information. <br>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a target="_blank"  href="https://www.tandfonline.com/toc/tgis20/current"><img class="img-responsive" th:src="@{/img/Journals/IJGIS.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center">
+
+                        <strong><a  target="_blank" href="https://www.tandfonline.com/toc/tgis20/current">International Journal of Geographical Information Science</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1365-8816<br>
+                            <label class="stronglabel">Impact Factor</label>: 3.733 (2019) <br>
+                            <label class="stronglabel">Description</label>: The aim of International Journal of Geographical Information Science is to provide a forum for the exchange of original ideas,  approaches,  methods and experiences in the field of GIScience.
+                            International Journal of Geographical Information Science covers the following topics:Innovations and novel applications of GIScience in natural resources,  social systems and the built environment Relevant developments in computer science,  cartography,  surveying,  geography,  and engineering Fundamental and computational issues of geographic information
+                            The design,  implementation and use of geographical information for monitoring,  prediction and decision making.<br>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a  target="_blank" href="https://www.tandfonline.com/toc/tjde20/current"><img class="img-responsive" th:src="@{/img/Journals/IJDE.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a target="_blank"  href="https://www.tandfonline.com/toc/tjde20/current">International Journal of Digital Earth</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1753-8947<br>
+                            <label class="stronglabel">Impact Factor</label>: 3.097 (2019) <br>
+                            <label class="stronglabel">Description</label>: International Journal of Digital Earth is a journal focusing on the theories,  technologies,  applications and societal implications of Digital Earth.
+                            International Journal of Digital Earth is the official journal of the International Society for Digital Earth.
+                            The journal is a response to the Digital Earth initiative and it's aim to improve social conditions,  protect the environment,  and support future sustainable development.<br>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a target="_blank"  href="https://journals.sagepub.com/home/epb"><img class="img-responsive" th:src="@{/img/Journals/Environmentand.png}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a target="_blank"  href="https://journals.sagepub.com/home/epb">Environment and Planning B: Urban Analytics and City Science</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 2399-8083<br>
+                            <label class="stronglabel">Impact Factor</label>: 2.822 (2019) <br>
+                            <label class="stronglabel">Description</label>: Environment and Planning B: Urban Analytics
+                            and City Science is the leading journal for the publication of high-quality articles that
+                            present cutting-edge research in analytical methods for urban planning and design. The journal
+                            focuses on smart cities,  urban analytics,  GIS,  and urban simulation models. It also deals with
+                            visualisation,  computation,  and formal design-based methods applicable to morphological processes
+                            and structures in cities and regions.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a  target="_blank" href="https://onlinelibrary.wiley.com/journal/15384632"><img class="img-responsive" th:src="@{/img/Journals/geographicalanalysis.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a target="_blank"  href="https://onlinelibrary.wiley.com/journal/15384632">Geographical Analysis </a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 0016-7363<br>
+                            <label class="stronglabel">Impact Factor</label>: 1.69 (2019) <br>
+                            <label class="stronglabel">Description</label>: Geographical Analysis publishes geographical
+                            theory,  model building,  and quantitative methods to geographers and scholars in a wide spectrum of related fields.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a target="_blank"  href="https://www.springer.com/journal/10109"><img class="img-responsive" th:src="@{/img/Journals/JournalofGeogra.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a  target="_blank" href="https://www.springer.com/journal/10109"> Journal of Geographical Systems </a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1435-5949 <br>
+                            <label class="stronglabel">Impact Factor</label>: 1.028 (2019) <br>
+                            <label class="stronglabel">Description</label>: The Journal of Geographical Systems (JGS) is an
+                            interdisciplinary peer-reviewed academic journal that aims to encourage and promote high-quality
+                            scholarship on new theoretical or empirical results,  models and methods in the social sciences.
+                            It solicits original papers with a spatial dimension that can be of interest to social scientists.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12" >
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a target="_blank"  href="https://www.springer.com/journal/43762"><img class="img-responsive" th:src="@{/img/Journals/ComputationalUrbanScience.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a target="_blank"  href="https://www.springer.com/journal/43762">Computational Urban Science</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 2730-6852<br>
+                            <!--                            <label class="stronglabel">Impact Factor</label>: 3.097 (2019) <br>-->
+                            <label class="stronglabel">Description</label>: Computational Urban Science publishes rigorously peer-reviewed and high-quality original articles and reviews that focus on the intersection of computational sciences and urban sciences in building intelligent and resilient cities. The journal aims to introduce the latest results in urban computing and its applications, examine both the spatial and social dimension of urban networks and built environment, promote the cooperation between computational disciplines and the urban domain sciences, and build a bridge for scientific communication.<br>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12" >
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a target="_blank"  href="https://www.tandfonline.com/toc/tagi20/current"><img class="img-responsive" th:src="@{/img/Journals/AnnualofGIS.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a  target="_blank" href="https://www.tandfonline.com/toc/tagi20/current">Annals of GIS</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 1947-5683<br>
+                            <!--                            <label class="stronglabel">Impact Factor</label>: 3.097 (2019) <br>-->
+                            <label class="stronglabel">Description</label>: Annals of GIS  is an open access journal that publishes interdisciplinary research on theory,  methods,  development and applications in geo-information science.
+                            The journal aims to connect researchers in the region to one another and to the wider,  international scientific community.<br>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--Awards-->
+        <div class="row" id="Awards">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Best Paper Awards</h3>
+                <hr>
+                <div class="cos-modal">
+                    <p>The Best Paper Award (BPA) is presented to the individual(s) judged by an awards committee to have written the best paper appearing in the annual conference proceedings.<br></p>
+                    <p>Two BPAs will be awarded at each annual conference. Notice of BPA application will be announced along with the Annual Conference Notice.<br><br></p>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Excellent Young Scholar Award</h3>
+                <hr>
+                <div class="cos-modal">
+                    <p>The Young Scholar Award (YSA) is presented to the individual(s) judged by an awards committee recognize his or her outstanding scientific achievements and contributions. Applicants needs to hold a PhD degree,  and within seven years of graduation.<br></p>
+                    <p>Two YSAs will be awarded each year.<br></p>
+                    <p>Details regarding requirements and documents for application will be announced soon on this website.<br><br></p>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Outstanding Achievement Award</h3>
+                <hr>
+                <div class="cos-modal">
+                    <p>The Outstanding Achievement Award is conferred by the commission on members of the commission who have given long and meritorious service to the commission or for particularly meritorious academic contribution of a shorter duration.</p>
+                    <p>One OAA will be awarded every year.<br></p>
+                    <p>Details regarding requirements and documents for application will be announced soon on this website.<br><br></p>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Distinguished Service Award</h3>
+                <hr>
+                <p class="cos-modal">
+                <p>The Distinguished Service Award (DSA) is conferred by
+                    the commission on members of the commission who have given long
+                    and meritorious service to the commission or for particularly meritorious service of a shorter duration.<br>
+                <p>One DSA will be awarded every year.</p>
+                <p>Details regarding requirements and documents for application will be announced soon on this website.</p>
+                </p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" style="margin-top:10px">
+            <a href="/doc/IGU MGSC Award Nomination Letter-2022.docx">IGU MGSC Award Nomination Letter Template (for OAA and YSA)</a>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Jobs&opportunities -->
+        <div class="row" id="JobsOpportunities" style="height: 70%">
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <div class="cos-modal">
+                    <strong>Research Assistant Professor positions open in Hong Kong Polytechnic University</strong>
+                    <hr>
+                    <p>Hong Kong Polytechnic University<br>Hong Kong,  China</p>
+                    <button class="btn btn-success" type="button"><a href="https://www.polyu.edu.hk/hro/postspec/19110601.pdf" target="_blank" style="color: white; text-decoration: none;">View</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!--ContactUs-->
+        <div class="row" id="ContactUs">
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">CONTACT INFORMATION</h3>
+                <hr>
+                <div class="cos-modal">
+                    <ul>
+                        <li>
+                            <strong>Prof. Min Chen</strong>
+                            <p>Chairman,  Professor
+                            </p>
+                            <strong>Address:</strong>
+                            <p>Nanjing Normal University<br>
+                                1 Wenyuan Road,  Nanjing,  Jiangsu,  210023,  China<br>
+                            </p>
+                            <strong>E-mail:</strong><br>
+                            <a href="mailto:chenmin0902@163.com" style="color: orange;"> chenmin0902@163.com	</a><br>
+                            <br>
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Dr. Xintao Liu</strong>
+                            <p>Secretary General,  Assistant Professor
+                            </p>
+                            <strong>Address:</strong>
+                            <p>Hong Kong Polytechnic University<br>
+                                181 Chatham Road South,  Hung Hom,  Kowloon,  Hong Kong, China.<br>
+                            </p>
+                            <strong>E-mail:</strong><br>
+                            <a href="mailto:xintao.liu@polyu.edu.hk" style="color: orange;"> xintao.liu@polyu.edu.hk	</a><br>
+                            <br>
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Zaiyang Ma</strong>
+                            <p>Office Assistant
+                            </p>
+                            <strong>Address:</strong>
+                            <p>Nanjing Normal University<br>
+                                1 Wenyuan Road,  Nanjing,  Jiangsu,  210023,  China<br>
+                            </p>
+                            <strong>E-mail:</strong><br>
+                            <a href="mailto:mzaiyang@outlook.com" style="color: orange;"> mzaiyang@outlook.com	</a><br>
+                            <br>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  <h3 class="cos-strong">LOCATION MAP</h3>
+                 <hr>
+                 <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div> -->
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Send Message</h3>
+                <hr>
+                <div class="cos-modal col-xs-8">
+                    <div class="form-group">
+                        <label for="CEmail">Email</label>
+                        <input type="email" class="form-control" id="CEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div> <br>
+                    <div class="form-group">
+                        <label for="CName">Name</label>
+                        <input type="text" class="form-control" id="CName" placeholder="Name">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="Cmessage">Message</label>
+                        <textarea type="text" class="form-control" id="Cmessage" placeholder="Message"></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" id="contactusemail" class="btn
+                                                  btn-primary
+                                                                  blue-bg">Submit</button>
+                    <br>
+                    <p id="successfulcontactus"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class='container-fluid  text-center' style="background-color: #201f23;padding: 0.3rem 0 0.3rem 0 " >
+        <span style="font-family:arial; color: white;font-size: 0.8rem;">Copyright &copy;2020 NNU</span><br>
+        <span style="font-family:arial; color: white;font-size: 0.8rem;"><a style="color: white" target="_blank" href="https://beian.miit.gov.cn">陕ICP备2020015416号</a></span>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+<script type="text/javascript" th:src="@{/js/index-vue.js}"></script>
+<script>
+
+    function newsnav_click(obj){
+        $(".newsnav>li").each(function (){
+            // alert(this)
+            $($(this).hasClass("active")).hide();
+            $($(this).children("li").children('a').data("href")).hide();
+            $($(this).children('a').data("href")).hide();
+            $(this).removeClass("active");
+        })
+
+        $(obj).addClass("active");
+        $($(obj).children('a').data("href")).fadeIn();
+    }
+    function latestnews_click(obj){
+
+
+        $(".nav-item-events").trigger("click");
+        $("#2021news").trigger("click");
+
+        window.location.hash = $(obj).attr("data-href");
+    }
+</script>
+</html>
+
+

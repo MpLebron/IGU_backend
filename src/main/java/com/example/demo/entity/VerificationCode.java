@@ -1,0 +1,22 @@
+package com.example.demo.entity;
+
+import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Date;
+
+
+@Document
+@Data
+public class VerificationCode {
+
+
+    @Field("_id")
+    String id;
+
+    String email;
+    String code;
+    Date date;
+
+}

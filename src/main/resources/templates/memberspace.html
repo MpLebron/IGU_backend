@@ -1,0 +1,157 @@
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MGSC of IGU- Memberspace</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" th:src="@{/ref/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{ref/bootstrap/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/ref/animate.min.css}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" th:href="@{/css/universal.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.min.css}"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+    <script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/js/userspace.js}"></script>
+    <script type="text/javascript" th:src="@{/js/memberspace.js}"></script>
+    <style>
+        .flex-container{
+            width:100%;display: flex;flex-direction: row;justify-content: center;align-items: center
+        }
+        .flex-container1{
+            border: 0.01rem dotted #333333;border-radius: 0.5rem;width: 35%;padding: 0 1% 0;display: flex;flex-wrap: wrap;justify-content: center;
+        }
+        @media screen and (max-width: 1035px){
+            .flex-container{
+                width:100%;display: flex;flex-direction: column;!important;justify-content: center;align-items: center;
+            }
+            .flex-container1{
+                border: 0.01rem dotted #333333;border-radius: 0.5rem;width: 70%;padding: 0 1% 0;display: flex;flex-wrap: wrap;justify-content: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body >
+
+<!--logo标题-->
+<div class="row" style="margin:auto;" >
+    <div class="col-xs-12 logo" style="text-align: center;padding-top: 1%;"><a th:href="@{/index.html}" ><img
+            class="Title" th:src="@{/img/logo/KeyLogo.png}" ></a></div>
+    <br>
+    <div class="col-xs-12 text-center logo" style="padding-bottom: 1%;">
+        <p>Modeling Geographical Systems Commission (MGSC) of</p>
+        <p>International Geographical Union (IGU)</p>
+    </div>
+</div>
+
+<!--导航条-->
+<div  class="row" style="margin: auto;">
+    <nav class="navbar navbar-default" id="headnav">
+        <!--创建一个bootstrap全屏布局-->
+        <div class="container-fluid">
+            <!--创建一个bootstrapLOGO布局-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navigationBar " aria-expanded="false">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!--创建导航条元素布局-->
+            <div class="row">
+                <div class="collapse navbar-collapse col-md-offset-2" id="navigationBar">
+                    <ul class="nav navbar-nav text-center" style="font-size: 0.8rem;">
+                        <!--data-href中不可出现除字母数字外的其他字符-->
+                        <li class="nav-item">
+                            <a th:href="@{/index.html}" class="nav-link" data-href="#">←Home</a>
+                        </li>
+                        <li style="position: absolute;margin:auto;top:0;left: 0;bottom: 0;right:0;line-height:0px; height:0px;font-size:30px;font-weight: bold;color:white">
+                            Member space
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<!--user space-->
+<div class="row" style="margin: auto">
+    <div class="flex-container" id="userspace">
+
+        <div class="flex-container1" id="info">
+            <h3 class="text-center" style="font-weight: bolder">Personal Information</h3>
+            <hr>
+            <div class="col-md-7 col-xs-7 lable-p" style="padding: 0" >
+                <p>Name:</p>
+                <p>Email:</p>
+                <p>Member register time:</p>
+                <p>Membership expiration time:</p>
+                <p>Is over expiration time:</p>
+            </div>
+            <div class="col-md-5 col-xs-5  " style="font-size: 0.8rem;padding: 0">
+
+                <p  id="spacename" th:text="${session.memberName}"></p>
+                <p th:text="${session.memberEmail}"></p>
+                <p th:text="${session.registerTime}"></p>
+                <p th:text="${session.dueTime}"></p>
+                <p th:text="${session.isDue}"></p>
+
+            </div>
+        </div>
+
+        <div style="width: 3%"></div>
+
+        <div class="flex-container1" id="setting">
+            <h3 class="text-center" style="font-weight: bolder">Personal Setting</h3>
+            <hr>
+            <div id="member" >
+                <div class="col-md-5 lable-p">
+                    <button class="bg-info" style="border-width: 0.01rem; font-size: 0.8rem;" id="btn-renew" >Renew</button>
+                </div>
+                <span class="col-md-12 text-left" style="padding-top:0.8%;padding-bottom: 0.2rem">
+                    <span  id="renewinfor" style="color: #ff0000;font-size: 0.8rem"></span>
+
+                    </span>
+                <div class="col-md-12" style="padding-top: 0.3rem">
+                    <p style="color: #5e5e5e;font-size: 0.8rem">Tip:Click the "Renew" button to renew the membership for one  more year.</p>
+                </div>
+                <hr style="margin-bottom: 0.5rem;margin-top: 0.3rem">
+
+                <div class="col-md-5 lable-p" >
+                <button class="bg-info" style="border-width: 0.01rem; font-size: 0.8rem;" id="btn-logout">Log out</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!-- foot1 -->
+<!--style="position: absolute;bottom: 0;margin: auto;width: 100%;"-->
+<!--<div  class="text-center " style="background-color: #201f23;position: absolute;bottom: 0;width: 100%;padding: 0.5rem 0 0 0 ">-->
+<!--    <p style="font-family:arial; color: white;font-size: 0.8rem;">Copyright &copy;2020 NNU</p>-->
+<!--</div>-->
+<div class='container-fluid  text-center' style="background-color: #201f23;padding: 0.3rem 0 0.3rem 0;position: fixed;bottom: 0;width: 100% " >
+    <span style="font-family:arial; color: white;font-size: 0.8rem;">Copyright &copy;2020 NNU</span>
+</div>
+
+</body>
+</html>

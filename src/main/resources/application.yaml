@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://39.98.210.144:59349/Iguuser
+  thymeleaf:
+    cache: false
+  mail:
+    host: smtp.163.com
+    username: xiaoyuhe1121@163.com
+    password: JWQIDVJAMJJGQXLJ
+    port: 465
+    protocol: smtp
+
+server:
+  port: 8087
+  servlet:
+    context-path: /mgsc
+    session:
+      timeout: 60
+
+
